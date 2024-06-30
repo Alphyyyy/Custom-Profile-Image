@@ -1,0 +1,38 @@
+{
+	"geode": "3.1.1",
+	"gd": {
+		"win": "2.206"
+	},
+	"id": "alphadev.custom_profile_image",
+	"name": "Custom Profile Image",
+	"version": "v1.0.0",
+	"developer": "alphadev",
+	"description": "Customize your profile button with a custom image",
+	"resources": {
+        "sprites": [
+            "resources/*.png"
+        ]
+    },
+	"settings": {
+		"image": {
+			"name": "Image File",
+			"description": "Path that leads to the image (leave blank for normal button), may not work with some images.",
+			"type": "file",
+			"default": "",
+			"control": {
+				"filters": [
+					{
+					"description": "Image Files",
+					"files": ["*.png","*.jpg","*.jpeg"]
+					}
+				]
+			}
+		},
+		"circle": {
+			"name": "Circle button",
+			"description": "Changes it into a circle button instead of image only (May look weird with non transparent images)",
+			"type": "bool",
+			"default": false
+		}
+	}
+}
