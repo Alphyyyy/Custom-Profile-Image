@@ -8,7 +8,7 @@
 	},
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile button with a custom image",
@@ -17,6 +17,7 @@
             "resources/*.png"
         ]
     },
+	"repository": "https://github.com/Alphyyyy/Custom-Profile-Image",
 	"settings": {
 		"image": {
 			"name": "Image File",
@@ -32,9 +33,15 @@
 				]
 			}
 		},
+		"circleb": {
+			"name": "Circle Border",
+			"description": "Crops the image to make it a circle, and adds a border to it (Circle Button option must be unchecked to make this work).",
+			"type":"bool",
+			"default": false
+		},
 		"circle": {
 			"name": "Circle button",
-			"description": "Changes it into a circle button instead of image only (May look weird with non transparent images)",
+			"description": "Changes it into a circle button instead of image only (May look weird with non transparent images).",
 			"type": "bool",
 			"default": false
 		}
