@@ -8,7 +8,7 @@
 	},
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.0.2",
+	"version": "v1.1.0",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile button with a custom image",
