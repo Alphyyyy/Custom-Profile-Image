@@ -1,3 +1,6 @@
+## v1.1.1
+* Fixed Circle Border not showing image sometimes
+
 ## v1.1.0
 * Added "Circle Border" option
 
