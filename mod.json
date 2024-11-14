@@ -1,17 +1,17 @@
 {
-	"geode": "3.2.0",
+	"geode": "4.0.0-alpha.1",
 	"gd": {
-		"win": "2.206",
-		"android": "2.206",
-		"mac": "2.206",
-		"ios": "2.206"
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.1.1",
+	"version": "v1.2.0-alpha.1",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
-	"description": "Customize your profile button with a custom image",
+	"description": "Customize your profile with a custom image",
 	"resources": {
         "sprites": [
             "resources/*.png"
@@ -39,11 +39,11 @@
 			"type":"bool",
 			"default": false
 		},
-		"circle": {
-			"name": "Circle button",
-			"description": "Changes it into a circle button instead of image only (May look weird with non transparent images).",
+		"profile": {
+			"name": "Show in Profile Menu",
+			"description": "Shows the image in the Profile Menu, duh.",
 			"type": "bool",
-			"default": false
+			"default": true
 		}
 	}
 }
