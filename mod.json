@@ -1,5 +1,5 @@
 {
-	"geode": "4.0.0-alpha.1",
+	"geode": "4.0.0-beta.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -8,7 +8,7 @@
 	},
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.2.0-alpha.1",
+	"version": "v1.2.0",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile with a custom image",
@@ -18,6 +18,13 @@
         ]
     },
 	"repository": "https://github.com/Alphyyyy/Custom-Profile-Image",
+	"dependencies": [
+        {
+            "id": "geode.node-ids",
+            "version": ">=v1.17.0-alpha.2",
+            "importance": "required"
+        }
+    ],
 	"settings": {
 		"image": {
 			"name": "Image File",
@@ -42,6 +49,12 @@
 		"profile": {
 			"name": "Show in Profile Menu",
 			"description": "Shows the image in the Profile Menu, duh.",
+			"type": "bool",
+			"default": true
+		},
+		"showerror": {
+			"name": "Show invalid Image Error",
+			"description": "Shows error popup in menu if the loaded image is not valid.",
 			"type": "bool",
 			"default": true
 		}
