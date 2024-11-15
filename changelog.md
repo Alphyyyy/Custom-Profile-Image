@@ -2,6 +2,7 @@
 * Added support for 2.207 version
 * Removed "Circle Button" option
 * Added "Show in Profile Menu" option
+* Fixed invalid images crashing the game.
 
 ## v1.1.1
 * Fixed Circle Border not showing image sometimes
