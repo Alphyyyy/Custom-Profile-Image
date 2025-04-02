@@ -1,14 +1,15 @@
 {
-	"geode": "4.0.0-beta.1",
+	"geode": "4.3.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
 		"mac": "2.2074",
 		"ios": "2.2074"
 	},
+	
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.2.0",
+	"version": "v1.3.0",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile with a custom image",
@@ -17,14 +18,18 @@
             "resources/*.png"
         ]
     },
-	"repository": "https://github.com/Alphyyyy/Custom-Profile-Image",
-	"dependencies": [
-        {
-            "id": "geode.node-ids",
-            "version": ">=v1.17.0-alpha.2",
-            "importance": "required"
-        }
-    ],
+	"dependencies": {
+		"geode.node-ids": {
+			"version": ">=1.4.0",
+			"importance": "required"
+		}
+	},
+	
+	"links": {
+		"source": "https://github.com/Alphyyyy/Custom-Profile-Image"
+	},
+	
+	
 	"settings": {
 		"image": {
 			"name": "Image File",
