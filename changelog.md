@@ -1,3 +1,6 @@
+## v1.4.0
+* Added GIF support (Thanks user95401).
+
 ## v1.3.0
 * Added iOS support.
 
