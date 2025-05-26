@@ -1,3 +1,6 @@
+## v1.4.1
+* Fixed an oopsie.
+
 ## v1.4.0
 * Added GIF support (Thanks user95401).
 
