@@ -1,5 +1,5 @@
 {
-	"geode": "4.4.0",
+	"geode": "4.3.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -9,7 +9,7 @@
 	
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.4.0",
+	"version": "v1.4.1",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile with a custom image",
@@ -23,7 +23,10 @@
 			"version": ">=1.4.0",
 			"importance": "required"
 		},
-		"user95401.gif-sprites": ">=v1.0.0"
+		"user95401.gif-sprites": {
+			"version": ">=1.0.0",
+			"importance":"recommended"
+		}
 	},
 	
 	"links": {
