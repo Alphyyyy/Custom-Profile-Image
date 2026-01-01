@@ -1,5 +1,5 @@
 {
-	"geode": "4.4.0",
+	"geode": "4.10.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -23,8 +23,8 @@
 			"version": ">=1.4.0",
 			"importance": "required"
 		},
-		"user95401.gif-sprites": {
-			"version": ">=1.0.0",
+		"prevter.imageplus": {
+			"version": ">=1.0.3",
 			"importance":"recommended"
 		}
 	},
