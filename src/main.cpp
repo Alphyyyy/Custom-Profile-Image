@@ -7,6 +7,7 @@ bool isValidSprite(CCNode* obj) {
 	return obj && !obj->getUserObject("geode.texture-loader/fallback");
 }
 void customizeAnimatedImage(CCSprite* newButton) {
+	if (!newButton) return;
 	imgp::AnimatedSprite* animatedButton = imgp::AnimatedSprite::from(newButton);
 	if (!animatedButton || !animatedButton->isAnimated()) return;
 	animatedButton->stop();
