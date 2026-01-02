@@ -66,6 +66,31 @@
 			"description": "Shows error popup in menu if the loaded image is not valid.",
 			"type": "bool",
 			"default": true
+		},
+		"animatedpictureheaders": {
+			"name": "Animated Profile Images",
+			"description": "Settings for animated profile images. These settings only apply to animated images.",
+			"type": "title"
+		},
+		"loopimage": {
+			"name": "Loop Animated Image",
+			"description": "Choose if the selected animated image will loop.",
+			"type": "bool",
+			"default": true
+		},
+		"playbackspeed": {
+			"name": "Animated Image Playback Speed",
+			"description": "Sets the playback speed of the selected animated image. Negative values will play the animated image in reverse.",
+			"type": "float",
+			"default": 1.00,
+			"min": -4.0,
+			"max": 4.00
+		},
+		"onespecificframe": {
+			"name": "Animated Image Specific Frame",
+			"description": "Sets the specific frame of the selected animated image. If the playback speed is 0.00, this is the frame the animated image will use. Otherwise, this is the frame the animated image will start playing from.",
+			"type": "int",
+			"default": 0
 		}
 	}
 }
