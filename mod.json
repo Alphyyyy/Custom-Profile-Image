@@ -25,7 +25,7 @@
 		},
 		"prevter.imageplus": {
 			"version": ">=1.0.3",
-			"importance":"recommended"
+			"importance": "required"
 		}
 	},
 	
