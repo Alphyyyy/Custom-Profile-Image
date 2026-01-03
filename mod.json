@@ -1,5 +1,5 @@
 {
-	"geode": "4.4.0",
+	"geode": "4.10.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -19,14 +19,8 @@
         ]
     },
 	"dependencies": {
-		"geode.node-ids": {
-			"version": ">=1.4.0",
-			"importance": "required"
-		},
-		"user95401.gif-sprites": {
-			"version": ">=1.0.0",
-			"importance":"recommended"
-		}
+		"geode.node-ids": ">=1.4.0",
+		"prevter.imageplus": ">=1.0.3"
 	},
 	
 	"links": {
@@ -66,6 +60,31 @@
 			"description": "Shows error popup in menu if the loaded image is not valid.",
 			"type": "bool",
 			"default": true
+		},
+		"animatedpictureheaders": {
+			"name": "Animated Profile Images",
+			"description": "Settings for animated profile images. These settings only apply to animated images.",
+			"type": "title"
+		},
+		"loopimage": {
+			"name": "Loop Animated Image",
+			"description": "Choose if the selected animated image will loop.",
+			"type": "bool",
+			"default": true
+		},
+		"playbackspeed": {
+			"name": "Animated Image Playback Speed",
+			"description": "Sets the playback speed of the selected animated image. Negative values will play the animated image in reverse.",
+			"type": "float",
+			"default": 1.00,
+			"min": -4.0,
+			"max": 4.00
+		},
+		"onespecificframe": {
+			"name": "Animated Image Specific Frame",
+			"description": "Sets the specific frame of the selected animated image. If the playback speed is 0.00, this is the frame the animated image will use. Otherwise, this is the frame the animated image will start playing from.",
+			"type": "int",
+			"default": 0
 		}
 	}
 }

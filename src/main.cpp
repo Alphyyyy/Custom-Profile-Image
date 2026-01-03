@@ -2,8 +2,22 @@
 using namespace geode::prelude;
 namespace fs = std::filesystem;
 #include <Geode/modify/MenuLayer.hpp>
+#include <prevter.imageplus/include/api.hpp>
 bool isValidSprite(CCNode* obj) {
 	return obj && !obj->getUserObject("geode.texture-loader/fallback");
+}
+void customizeAnimatedImage(CCSprite* newButton) {
+	if (!newButton) return;
+	imgp::AnimatedSprite* animatedButton = imgp::AnimatedSprite::from(newButton);
+	if (!animatedButton || !animatedButton->isAnimated()) return;
+	animatedButton->stop();
+	animatedButton->setForceLoop(std::make_optional<bool>(Mod::get()->getSettingValue<bool>("loopimage")));
+	int oneSpecificFrame = Mod::get()->getSettingValue<int>("onespecificframe");
+	if (oneSpecificFrame < 0) oneSpecificFrame = 0;
+	if (oneSpecificFrame > animatedButton->getFrameCount() - 1) oneSpecificFrame = animatedButton->getFrameCount() - 1;
+	animatedButton->setCurrentFrame(oneSpecificFrame);
+	float playbackSpeed = std::clamp<float>(Mod::get()->getSettingValue<float>("playbackspeed"), -4.f, 4.f);
+	if (playbackSpeed != 0.f) animatedButton->setPlaybackSpeed(playbackSpeed);
 }
 class $modify(MyMenuLayer, MenuLayer) {
 	bool init() {
@@ -15,12 +29,12 @@ class $modify(MyMenuLayer, MenuLayer) {
 		auto bottomMenu = this->getChildByIDRecursive("profile-menu");
 		auto profileButton = bottomMenu->getChildByIDRecursive("profile-button");
 		if (!profileButton) return true;
-		auto profileImage = typeinfo_cast<CCSprite*>(profileButton->getChildren()->objectAtIndex(0));
+		auto profileImage = profileButton->getChildByType<CCSprite*>(0);
 		auto img = Mod::get()->getSettingValue<std::filesystem::path>("image");
 		//if (img == "") return true;
 		if (!fs::exists(img)) return true;
 		
-		CCSprite* newButton = CCSprite::create(img.string().c_str());
+		CCSprite* newButton = CCSprite::create(geode::utils::string::pathToString(img).c_str());
 		isValidImage = newButton;
 		if (isValidImage) isValidImage = isValidSprite(newButton);
 		//profileButton->addChild(newButton);
@@ -54,6 +68,7 @@ class $modify(MyMenuLayer, MenuLayer) {
 			}else{
 				profileButton->addChild(newButton);
 			}
+			customizeAnimatedImage(newButton);
 		}else{
 			if (Mod::get()->getSettingValue<bool>("showerror") == true) {
 				auto alert = FLAlertLayer::create(
@@ -81,7 +96,7 @@ class $modify(ExtendedProfilePage, ProfilePage) {
 			
 			auto img = Mod::get()->getSettingValue<std::filesystem::path>("image");
 			if (!fs::exists(img)) return true;
-			CCSprite* newButton = CCSprite::create(img.string().c_str());
+			CCSprite* newButton = CCSprite::create(geode::utils::string::pathToString(img).c_str());
 			isValidImage = newButton;
 			if (isValidImage) isValidImage = isValidSprite(newButton);
 			if (isValidImage) {
@@ -125,6 +140,7 @@ class $modify(ExtendedProfilePage, ProfilePage) {
 				}
 				username->updateLayout();
 				this->updateLayout();
+				customizeAnimatedImage(newButton);
 			}
 		}
 		return true; 
