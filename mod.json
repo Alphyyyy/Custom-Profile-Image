@@ -1,15 +1,15 @@
 {
-	"geode": "4.10.0",
+	"geode": "5.0.0-beta.2",
 	"gd": {
-		"win": "2.2074",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
 	},
 	
 	"id": "alphadev.custom_profile_image",
 	"name": "Custom Profile Image",
-	"version": "v1.4.1",
+	"version": "v1.5.0",
 	"developer": "alphadev",
 	"tags": ["customization","offline","interface"],
 	"description": "Customize your profile with a custom image",
@@ -29,6 +29,11 @@
 	
 	
 	"settings": {
+		"general": {
+			"name": "General Settings",
+			"description": "General settings for the mod.",
+			"type": "title"
+		},
 		"image": {
 			"name": "Image File",
 			"description": "Path that leads to the image (leave blank for normal button), may not work with some images.",
@@ -42,6 +47,12 @@
 					}
 				]
 			}
+		},
+		"heightscale": {
+			"name": "Scale Depending on Height",
+			"description": "Scales the image depending on the image's height instead of width. Use this if the image doesn't fit properly when scaled depending on the width.",
+			"type": "bool",
+			"default": false
 		},
 		"circleb": {
 			"name": "Circle Border",

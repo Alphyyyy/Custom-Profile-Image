@@ -3,6 +3,9 @@ using namespace geode::prelude;
 namespace fs = std::filesystem;
 #include <Geode/modify/MenuLayer.hpp>
 #include <prevter.imageplus/include/api.hpp>
+
+//This code is a mess lmaooo
+
 bool isValidSprite(CCNode* obj) {
 	return obj && !obj->getUserObject("geode.texture-loader/fallback");
 }
@@ -10,7 +13,6 @@ void customizeAnimatedImage(CCSprite* newButton) {
 	if (!newButton) return;
 	imgp::AnimatedSprite* animatedButton = imgp::AnimatedSprite::from(newButton);
 	if (!animatedButton || !animatedButton->isAnimated()) return;
-	animatedButton->stop();
 	animatedButton->setForceLoop(std::make_optional<bool>(Mod::get()->getSettingValue<bool>("loopimage")));
 	int oneSpecificFrame = Mod::get()->getSettingValue<int>("onespecificframe");
 	if (oneSpecificFrame < 0) oneSpecificFrame = 0;
@@ -18,6 +20,7 @@ void customizeAnimatedImage(CCSprite* newButton) {
 	animatedButton->setCurrentFrame(oneSpecificFrame);
 	float playbackSpeed = std::clamp<float>(Mod::get()->getSettingValue<float>("playbackspeed"), -4.f, 4.f);
 	if (playbackSpeed != 0.f) animatedButton->setPlaybackSpeed(playbackSpeed);
+	if (playbackSpeed == 0.f) animatedButton->stop();
 }
 class $modify(MyMenuLayer, MenuLayer) {
 	bool init() {
@@ -41,7 +44,12 @@ class $modify(MyMenuLayer, MenuLayer) {
 		if (isValidImage) {
 			profileImage->removeFromParent();
 			newButton->setPosition({profileImage->getPositionX(),profileImage->getPositionY()});
-			newButton->setScale(48 / newButton->getContentSize().width);
+			bool heightscale = Mod::get()->getSettingValue<bool>("heightscale");
+			if (heightscale) {
+				newButton->setScale(48 / newButton->getContentSize().height);
+			}else {
+				newButton->setScale(48 / newButton->getContentSize().width);
+			}
 			if (Mod::get()->getSettingValue<bool>("circleb") == true) {
 				auto clippingNode = CCClippingNode::create();
 				clippingNode->setContentSize(newButton->getContentSize());
@@ -102,7 +110,12 @@ class $modify(ExtendedProfilePage, ProfilePage) {
 			if (isValidImage) {
 				newButton->setID("profile-image");
 				
-				newButton->setScale(32 / newButton->getContentSize().width);
+				bool heightscale = Mod::get()->getSettingValue<bool>("heightscale");
+				if (heightscale) {
+					newButton->setScale(32 / newButton->getContentSize().height);
+				}else {
+					newButton->setScale(32 / newButton->getContentSize().width);
+				}
 			
 				if (Mod::get()->getSettingValue<bool>("circleb") == true) {
 					newButton->setScale(16 / newButton->getContentSize().width);
@@ -112,7 +125,12 @@ class $modify(ExtendedProfilePage, ProfilePage) {
 					clippingNode->setInverted(false);
 					clippingNode->setAlphaThreshold(0.7f);
 					clippingNode->setID("clipping-image");
-					newButton->setScale(32 / newButton->getContentSize().width);
+					bool heightscale = Mod::get()->getSettingValue<bool>("heightscale");
+					if (heightscale) {
+						newButton->setScale(32 / newButton->getContentSize().height);
+					}else {
+						newButton->setScale(32 / newButton->getContentSize().width);
+					}
 					//clippingNode->setPosition(newButton->getPosition());
 					auto mask = CCSprite::createWithSpriteFrameName("d_circle_02_001.png");
 					

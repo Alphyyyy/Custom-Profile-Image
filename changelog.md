@@ -1,3 +1,8 @@
+## v1.5.0
+* Added support for 2.208 version.
+* Added more settings for animated images.
+* Added "Scale Depending on Height" option.
+
 ## v1.4.1
 * Fixed an oopsie.
 
