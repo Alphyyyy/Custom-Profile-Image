@@ -1,3 +1,6 @@
+## v1.6.0
+* Added support for 2.209 version.
+
 ## v1.5.0
 * Added support for 2.208 version.
 * Added more settings for animated images.

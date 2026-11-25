@@ -1,8 +1,7 @@
 #include <Geode/Geode.hpp>
 using namespace geode::prelude;
-namespace fs = std::filesystem;
 #include <Geode/modify/MenuLayer.hpp>
-#include <prevter.imageplus/include/api.hpp>
+#include <prevter.imageplus/api.hpp>
 
 //This code is a mess lmaooo
 
@@ -33,11 +32,11 @@ class $modify(MyMenuLayer, MenuLayer) {
 		auto profileButton = bottomMenu->getChildByIDRecursive("profile-button");
 		if (!profileButton) return true;
 		auto profileImage = profileButton->getChildByType<CCSprite*>(0);
-		auto img = Mod::get()->getSettingValue<std::filesystem::path>("image");
+		auto img = Mod::get()->getSettingValue<asp::fs::Path>("image");
 		//if (img == "") return true;
-		if (!fs::exists(img)) return true;
+		if (!img.exists()) return true;
 		
-		CCSprite* newButton = CCSprite::create(geode::utils::string::pathToString(img).c_str());
+		CCSprite* newButton = CCSprite::create(img.string().c_str());
 		isValidImage = newButton;
 		if (isValidImage) isValidImage = isValidSprite(newButton);
 		//profileButton->addChild(newButton);
@@ -102,9 +101,9 @@ class $modify(ExtendedProfilePage, ProfilePage) {
 			auto username = static_cast<cocos2d::CCMenu *>(this->getChildByIDRecursive("username-menu"));
 			auto name = static_cast<cocos2d::CCLabelBMFont *>(username->getChildByIDRecursive("username-label"));
 			
-			auto img = Mod::get()->getSettingValue<std::filesystem::path>("image");
-			if (!fs::exists(img)) return true;
-			CCSprite* newButton = CCSprite::create(geode::utils::string::pathToString(img).c_str());
+			auto img = Mod::get()->getSettingValue<asp::fs::Path>("image");
+			if (!img.exists()) return true;
+			CCSprite* newButton = CCSprite::create(img.string().c_str());
 			isValidImage = newButton;
 			if (isValidImage) isValidImage = isValidSprite(newButton);
 			if (isValidImage) {
